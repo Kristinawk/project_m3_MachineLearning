@@ -35,7 +35,7 @@ project_m3_MachineLearning/
 ├── notebooks/
 │   ├── functions.py                    # Helper functions for data preprocessing
 │   ├── encod03_featu00_model02.ipynb   # Model training - best Kaggle score 
-│   ├── ...                             # Model training - various tests 
+│   ├── ...                             # Model training - other attempts 
 │
 ├── predictions/
 │   ├── encod03_featu00_model02.csv     # Model prediction for test dataset 
@@ -56,7 +56,7 @@ This project requires Python and several libraries:
 
 #### Data Preprocessing
 Steps:  
-1. Create functions.py to automate the most repetitive processing and training tasks.   
+1. Create functions.py: Automate the most repetitive processing and training tasks.   
 2. Load the dataset: Load the training and test datasets into pandas DataFrames.  
 3. Outliers management: Analyse outliers in numerical features and clean dataset.  
 4. Feature encoding: Encode cut, color, and clarity using LabelEncoder. Drop city.  
@@ -73,10 +73,10 @@ Stacking Regressor (combining multiple models)
 
 Steps:  
 
-Train-test data sets: Split preprocessed training dataset into train and test (20%) subsets.  
-Evaluate multiple models: Perform cross-validation with various models. Refer to ```notebooks/encod01_featu00_model01.ipynb``` and ```notebooks/encod03_featu00_model02.ipynb```.  
-Stacking Regressor: Combine base models (Random Forest, XGBoost, Extra Trees) using a meta-model (Ridge) to improve prediction accuracy.  
-Train the model: Train Stacking Regressor on the preprocessed training dataset.
+1. Train-test data sets: Split preprocessed training dataset into train and test (20%) subsets.  
+2. Evaluate multiple models: Perform cross-validation with various models. Refer to ```notebooks/encod01_featu00_model01.ipynb``` and ```notebooks/encod03_featu00_model02.ipynb```.  
+3. Stacking Regressor: Combine base models (Random Forest, XGBoost, Extra Trees) using a meta-model (Ridge) to improve prediction accuracy.  
+4. Train the model: Train Stacking Regressor on the preprocessed training dataset.
 
 #### Model Prediction  
 Use trained model to predict diamonds prices from the test dataset. The most accurate prediction was saved in  ```predictions/encod03_featu00_model02.ipynb``` and uploaded into Kaggle. The RMSE achieved in training dataset was 525$, and 558$ in test dataset (train dataset price mean = 3,928$, IQR = 4,386$)
@@ -85,8 +85,6 @@ Use trained model to predict diamonds prices from the test dataset. The most acc
 After training, you can save the trained model using joblib for later use.
 
 ```
-python
-
 import joblib
 
 # Save model
@@ -94,6 +92,4 @@ joblib.dump(model, 'trained_model.pkl')
 ```
 To load the saved model for predictions:
 ```
-python
-
 model = joblib.load('trained_model.pkl')
